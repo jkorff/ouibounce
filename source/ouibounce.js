@@ -11,6 +11,7 @@ function ouibounce(el, custom_config) {
     cookieDomain = config.cookieDomain ? ';domain=' + config.cookieDomain : '',
     cookieName   = config.cookieName ? config.cookieName : 'viewedOuibounceModal',
     sitewide     = config.sitewide === true ? ';path=/' : '',
+    displayClass = config.displayClass ? config.displayClass : 'ouibounce-display',
     _delayTimer  = null,
     _html        = document.documentElement;
 
@@ -84,8 +85,8 @@ function ouibounce(el, custom_config) {
   function fire() {
     if (isDisabled()) { return; }
 
-    if (el) { el.style.display = 'block'; }
-
+    if (el) { el.className = el.className + ' ' + displayClass; }
+    
     callback();
     disable();
   }
